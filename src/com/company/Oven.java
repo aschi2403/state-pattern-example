@@ -1,7 +1,7 @@
 package com.company;
 
 public class Oven {
-    private OvenState state = new OvenTurnedOff();
+    private OvenState state = new OvenTurnedOff(this);
 
     public OvenState getState() {
         return state;
@@ -12,10 +12,10 @@ public class Oven {
     }
 
     public void turnOn(){
-        state.turnOn(this);
+        state.turnOn();
     }
 
     public void turnOff(){
-        state.turnOff(this);
+        state.turnOff();
     }
 }

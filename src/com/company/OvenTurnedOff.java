@@ -1,14 +1,20 @@
 package com.company;
 
 public class OvenTurnedOff implements OvenState{
-    @Override
-    public void turnOn(Oven oven) {
-        System.out.println("Oven turned on");
-        oven.setState(new OvenTurnedOn());
+    private Oven oven;
+
+    public OvenTurnedOff(Oven oven) {
+        this.oven = oven;
     }
 
     @Override
-    public void turnOff(Oven oven) {
+    public void turnOn() {
+        System.out.println("Oven turned on");
+        oven.setState(new OvenTurnedOn(oven));
+    }
+
+    @Override
+    public void turnOff() {
         System.out.println("Nothing changed it was already off");
     }
 }
